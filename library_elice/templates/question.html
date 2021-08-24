@@ -1,0 +1,91 @@
+{% extends 'base.html' %} <!-- base.html 불러오기 -->
+{% block title %}
+    자주 묻는 질문(FAQ)
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="static/library.css">
+<body class="text-center">
+    <style>
+    .answer {
+        display: none;
+        padding-bottom: 30px;
+    }
+    #faq-title {
+        font-size: 25px;
+    }
+    .faq-content {
+        border-bottom: 1px solid #e0e0e0;
+    }
+    .question {
+        font-size: 19px;
+        padding: 30px 0;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        background: none;
+        width: 100%;
+        text-align: left;
+    }
+    .question:hover {
+        color: #2962ff;
+        cursor: url(./static/link.cur), auto;
+    }
+    [id$="-toggle"] {
+        margin-right: 15px;
+    }
+    </style>
+
+    <span id="faq-title">자주 묻는 질문(FAQ)</span>
+    <div class="faq-content">
+        <button class="question" id="que-1"><span id="que-1-toggle">+</span><span>[도서관이용] 회원탈퇴는 어떻게 하나요?</span></button>
+        <div class="answer" id="ans-1">못합니다.</div>
+    </div>
+    <div class="faq-content">
+        <button class="question" id="que-2"><span id="que-2-toggle">+</span><span>[도서관이용] 분실물 관리는 어떻게 하나요?</span></button>
+        <div class="answer" id="ans-2">분실물은 자료실 운영 마감 시 담당직원이 각실에 보관합니다.</div>
+    </div>
+    <div class="faq-content">
+        <button class="question" id="que-3"><span id="que-3-toggle">+</span><span>[자료이용] 희망도서 신청은 어떻게 하나요?</span></button>
+        <div class="answer" id="ans-3">강윤수 튜터님께 문의하시길 바랍니다.</div>
+    </div>
+    <div class="faq-content">
+        <button class="question" id="que-4"><span id="que-4-toggle">+</span><span>[자료이용] 도서 기증은 어떻게 하나요?</span></button>
+        <div class="answer" id="ans-4">돈으로 주세요.</div>
+    </div>
+    <div class="faq-content">
+        <button class="question" id="que-5"><span id="que-5-toggle">+</span><span>[자료이용] 도서의 대출권수와 대출기간은 어떻게 되나요?</span></button>
+        <div class="answer" id="ans-5">대출권수 1인 최대 2권, 대출기간 14일(단, 1회 7일 연장가능)</div>
+    </div>
+    <div class="faq-content">
+        <button class="question" id="que-6"><span id="que-6-toggle">+</span><span>[자료이용] 반납기한 연체시 적용되는 불이익이 있나요?</span></button>
+        <div class="answer" id="ans-6">회원탈퇴(강제)</div>
+    </div>
+    <div class="faq-content">
+        <button class="question" id="que-7"><span id="que-7-toggle">+</span><span>[엘리스 AI 트랙] 프론트엔드에서 백엔드까지, 데이터 분석부터 인공지능까지 알려주는 완벽한 수업이 있을까요?</span></button>
+        <div class="answer" id="ans-7">그것이 바로 킹갓제너럴엠페러마제스티골져스프레셔스뷰리풀하이클래스엘레강스럭셔리클래식지니어스원더풀러블리월드탑클래스 엘리스 트랙 (2기 화이팅!)</div>
+    </div>
+    <div class="faq-content">
+        <button class="question" id="que-8"><span id="que-8-toggle">+</span><span>[엘리스 AI 트랙] 엘리스 AI 트랙은 어디서 신청하나요?</span></button>
+        <div class="answer" id="ans-8"><a href="https://elicetrack.oopy.io/">여기로</a></div>
+    </div>
+
+    <script>
+        const items = document.querySelectorAll('.question');
+
+        function openCloseAnswer() {
+        const answerId = this.id.replace('que', 'ans');
+
+        if(document.getElementById(answerId).style.display === 'block') {
+            document.getElementById(answerId).style.display = 'none';
+            document.getElementById(this.id + '-toggle').textContent = '+';
+        } else {
+            document.getElementById(answerId).style.display = 'block';
+            document.getElementById(this.id + '-toggle').textContent = '-';
+            }
+        }
+
+        items.forEach(item => item.addEventListener('click', openCloseAnswer));
+    </script>
+</body>
+{% endblock %}

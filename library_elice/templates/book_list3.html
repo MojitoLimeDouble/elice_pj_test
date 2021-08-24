@@ -1,0 +1,82 @@
+{% extends 'base.html' %} <!-- base.html 불러오기 -->
+{% block title %}
+    코딩 도서관 엘리스
+{% endblock %}
+
+{% block content %}
+<!-- 페이지 네이션에 필요한 코드 -->
+<link rel="stylesheet" href="static/test.css">
+<link rel="stylesheet" href="static/library.css">
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <!-- 여기부터 요소시작 -->
+            {% for book in books %}
+            {% if book.id > 16 and book.id <= 24%}
+            {% include 'includes/books_modals.html' %}
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="../static/book_img/{{book.id}}.jpg" alt="...">
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <a data-toggle="modal" href="#Modal-MoreInfo-{{ book.id }}" style="text-decoration:none">
+                                <h5 class="fw-bolder">{{ book.book_name }}</h5>
+                            </a>
+                            <!-- 별점 -->
+                            <div class="d-flex justify-content-center small text-warning mb-2">
+                                <div class="bi-star-fill"></div>
+                            </div>
+                            <!-- 책 갯수 -->
+                            <span class="text-muted text-decoration-line-through">{{book.quantity}}권남음</span>
+                        </div>
+                    </div>
+                    <!-- 책의 수량이 0보다 많으면 대여 가능 0개면 못함-->
+                    {% if book.quantity > 0 %}
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent" style="text-align:center;">
+                            <button class="btn btn-outline btn-success" data-toggle="modal" data-target="#Modal-BorrowConfirm-{{ book.id }}">대여</button>
+                    {% else %}
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent" style="text-align:center;">
+                            <button class="btn btn-outline btn-success">대여불가</button>
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        <!-- 요소끝 -->
+        </div>
+    </div>
+</section>
+
+<!-- 페이지네이션 -->
+<nav aria-label="...">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link" href="{{ url_for('book_list_page2') }}">이전</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="{{ url_for('book_list_page') }}">1</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="{{ url_for('book_list_page2') }}">2</a>
+      </li>
+      <li class="page-item active">
+        <a class="page-link" href="{{ url_for('book_list_page3') }}">3</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="{{ url_for('book_list_page4') }}">4</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="{{ url_for('book_list_page5') }}">5</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="{{ url_for('book_list_page4') }}">다음</a>
+      </li>
+    </ul>
+</nav>
+
+{% endblock %}

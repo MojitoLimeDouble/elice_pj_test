@@ -1,0 +1,115 @@
+<style>
+    /* .modal-content {
+        background-color: #161313;
+    } */
+  /* 책 상세보기 모달 가운데 정렬 */
+  .modal {
+    position: absolute;
+    float: left;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  /* 버튼 css */
+  @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+</style>
+
+
+
+<!-- 책 정보 테스트 -->
+<div class="modal fade" id="Modal-MoreInfo-{{ book.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content bg-light">
+      <div class="modal-header">
+        <div class="container mt-5">
+          <div class="d-flex justify-content-center row">
+              <!-- col-md의 맥스값은 12 -->
+              <div class="col-md-12">
+                  <div class="d-flex flex-column comment-section" id="myGroup">
+                      <!-- 책 정보 시작 -->
+                      <div class="bg-white p-2">
+                          <!-- 책 아이콘 누르면 해당 데터베이스에 있는 링크로 슝슝슝 -->
+                          <a href="{{book.link}}"><div class="d-flex flex-row user-info"><img class="rounded-circle" src="../static/book_img/{{book.id}}.jpg" width="100"></a>
+                              <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">{{ book.book_name }}</span><span class="date text-black-50">{{ book.author }}</span></div>
+                          </div>
+                          <div class="mt-2">
+                              <p class="comment-text">{{ book.description }}</p>
+                        </div>
+                      </div>
+                      <!-- 여기까지가 책 정보 -->
+                      <!-- 여기는 좋아요, 상세정보 기능 구현 -->
+                      <div class="bg-white p-2">
+                        <div class="d-flex flex-row fs-12">
+                            <div class="like p-2 cursor action-collapse" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-2" href="#collapse-2">
+                              <i class="fa fa-share"></i><span class="ml-1">상세정보</span>
+                            </div>
+                        </div>
+                      </div>
+                      <!-- 여기까지 좋아요, 상세정보 기능 구현 -->
+                      
+                      <!-- 여기는 책 상세정보 보기 -->
+                      <div id="collapse-2" class="bg-light p-2 collapse" data-parent="#myGroup">
+                        <p>출판사: {{ book.publisher }}</p>
+                        <p>출간일: {{ book.publication_date }}</p>
+                        <p>페이지 수: {{ book.pages }}</p>
+                        <p>ISBN코드: {{ book.isbn }}</p>
+                      </div>
+                      <!-- 여기까지 상세정보 -->
+                      <!-- 좋아유~ 기능 -->
+
+                      좋아요: {{book.likes|length}}
+                      <!-- 만약 유저가 이미 좋아유 누르면~ -->
+                      {% if book.likes %}
+                      <a href="/like-book/{{book.id}}"><i class="fas fa-thumbs-up"><img src="../../static/thumb_up_checked.png" width="20px" height="20px"></i></a>
+                      <!-- 좋아유를 안눌렀다면~ -->
+                      {% else %}
+                      <a href="/like-book/{{book.id}}"><img src="../../static/thumb_up.png" width="20px" height="20px"><i class="far fa-thumbs-up"></i></a>
+                      {% endif %}
+                      
+                      
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 도서 대출 확인 -->
+<div class="modal fade" id="Modal-BorrowConfirm-{{ book.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-light">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLabel">{{ book.book_name }}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- POST를 이용해서 대여 연동하기 -->
+          <form method="POST">
+            {{ borrow_form.hidden_tag() }}
+
+            <h4 class="text-center">
+                정말 {{ book.book_name }}을(를) 대출하시겠습니까?
+            </h4>
+            <input id="borrow_book" name="borrow_book" type="hidden" value="{{book.book_name}}">
+            {{ borrow_form.submit(class="btn btn-outline-success btn-block") }}
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+        </div>
+      </div>
+    </div>
+</div>

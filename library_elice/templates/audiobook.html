@@ -1,0 +1,371 @@
+{% extends 'base.html' %} <!-- base.html 불러오기 -->
+{% block title %}
+    귀로 읽는 책방
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="static/library.css">
+<link rel="stylesheet" href="static/audio_page.css">
+
+
+<body class="text-center">
+    <div>
+        <br>
+        <h2><이달의 오디오 북></h2>
+        <br>
+        <div id="rainbow">
+            <h3>Alice's Adventures in Wonderland</h3>
+        </div>
+
+        <div class="introduction">
+
+            <img src="../static/audio_book_files/alice_cover.jpg" height="300" alt="register_img">
+            <p>
+                《이상한 나라의 앨리스》<br> (영어: Alice in Wonderland) <br><br>
+                「영국의 수학자이자 작가인 찰스 루트위지 도지슨이 루이스 캐럴이라는 필명으로 1865년에 발표한 소설이다. 앨리스가 토끼굴에 들어가 기묘하고 의인화된 생명체들이 사는 환상의 세계에서 모험을 겪는 이야기를 담고 있다.」
+            </p>
+        </div>
+
+        <div class="container cta-100 ">
+            <div class="container">
+              <div class="row blog">
+                <div class="col-md-12">
+                  <div id="blogCarousel" class="carousel slide container-blog" data-ride="carousel" data-interval="false">
+                    <ol class="carousel-indicators">
+                      <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+                      <li data-target="#blogCarousel" data-slide-to="1"></li>
+                      <li data-target="#blogCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <!-- Carousel items -->
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <div class="row">
+                          <!-- 1번 책 요소 -->
+                          <div class="col-md-4" >
+                            <div class="item-box-blog">
+                              <div class="item-box-blog-image">
+                                <!--Date-->
+                                <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">Ⅰ</span> </div>
+                                <!--Image-->
+                                <figure> <img alt="" src="../static/audio_book_files/elice_friend.png"> </figure>
+                              </div>
+                              <div class="item-box-blog-body">
+                                <!--Heading-->
+                                <div class="item-box-blog-heading">
+                                  <h5><strong>Down the Rabbit-Hole</strong></h5>
+                                </div>
+                                <!--Data-->
+                                <div class="item-box-blog-data" style="padding: px 15px;">
+                                  
+                                </div>
+                                <!--Text-->
+                                <div class="item-box-blog-text">
+                                  <p>Alice was beginning to get very tired of sitting by her sister on the bank,
+                                    and of having nothing to do.</p>
+                                </div>
+                                <div class="mt">
+                                        <audio controls>
+                                            <source src="../static/audio_book_files/chapter1.mp3" type="audio/mp3">
+                                        </audio>
+                                </div>
+                                
+                                <!--Read More Button-->
+                              </div>
+                            </div>
+                          </div>
+                          <!-- 한 요소 끝 -->
+                          <div class="col-md-4" >
+                            <div class="item-box-blog">
+                              <div class="item-box-blog-image">
+                                <!--Date-->
+                                <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">Ⅱ</span> </div>
+                                <!--Image-->
+                                <figure> <img alt="" src="../static/audio_book_files/elice_friend.png"> </figure>
+                              </div>
+                              <div class="item-box-blog-body">
+                                <!--Heading-->
+                                <div class="item-box-blog-heading">
+                                    <h5><strong>Pool of Tears</strong></h5>
+                                </div>
+                                <!--Data-->
+                                <div class="item-box-blog-data" style="padding: px 15px;">
+                                  
+                                </div>
+                                <!--Text-->
+                                <div class="item-box-blog-text">
+                                  <p>‘Curiouser and curiouser!’ cried Alice (she was so much surprised, that for the moment she quite forgot how to speak good English)</p>
+                                </div>
+                                <div class="mt">
+                                    <audio controls>
+                                        <source src="../static/audio_book_files/chapter2.mp3" type="audio/mp3">
+                                    </audio>
+                                </div>
+                                <!--Read More Button-->
+                              </div>
+                            </div>
+                          </div>
+                          <!-- 1번 책 요소 -->
+                          <div class="col-md-4" >
+                            <div class="item-box-blog">
+                              <div class="item-box-blog-image">
+                                <!--Date-->
+                                <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">Ⅲ</span> </div>
+                                <!--Image-->
+                                <figure> <img alt="" src="../static/audio_book_files/elice_friend.png"> </figure>
+                              </div>
+                              <div class="item-box-blog-body">
+                                <!--Heading-->
+                                <div class="item-box-blog-heading">
+                                  <h5><strong>A Caucus-Race and a Long Tale</strong></h5>
+                                </div>
+                                <!--Data-->
+                                <div class="item-box-blog-data" style="padding: px 15px;">
+                                  
+                                </div>
+                                <!--Text-->
+                                <div class="item-box-blog-text">
+                                  <p>
+                                      They were indeed a queer-looking party that assembled on the bank.
+                                  </p>
+                                </div>
+                                <div class="mt">
+                                        <audio controls>
+                                            <source src="../static/audio_book_files/chapter3.mp3" type="audio/mp3">
+                                        </audio>
+                                </div>
+                                
+                                <!--Read More Button-->
+                              </div>
+                            </div>
+                          </div>
+                          <!-- 한 요소 끝 -->
+                        </div>
+                        <!--.row-->
+                      </div>
+                      <!--.item-->
+                      <div class="carousel-item ">
+                        <div class="row">
+                          <!-- 1번 책 요소 -->
+                          <div class="col-md-4" >
+                            <div class="item-box-blog">
+                              <div class="item-box-blog-image">
+                                <!--Date-->
+                                <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">Ⅳ</span> </div>
+                                <!--Image-->
+                                <figure> <img alt="" src="../static/audio_book_files/elice_friend.png"> </figure>
+                              </div>
+                              <div class="item-box-blog-body">
+                                <!--Heading-->
+                                <div class="item-box-blog-heading">
+                                  <h5><strong>The Rabbit Sends in a Little Bill</strong></h5>
+                                </div>
+                                <!--Data-->
+                                <div class="item-box-blog-data" style="padding: px 15px;">
+                                  
+                                </div>
+                                <!--Text-->
+                                <div class="item-box-blog-text">
+                                  <p>It was the White Rabbit, trotting slowly back again, and looking anxiously
+                                    about as it went, as if it had lost something</p>
+                                </div>
+                                <div class="mt">
+                                        <audio controls>
+                                            <source src="../static/audio_book_files/chapter4.mp3" type="audio/mp3">
+                                        </audio>
+                                </div>
+                                
+                                <!--Read More Button-->
+                              </div>
+                            </div>
+                          </div>
+                          <!-- 한 요소 끝 -->
+                          <!-- 1번 책 요소 -->
+                          <div class="col-md-4" >
+                            <div class="item-box-blog">
+                              <div class="item-box-blog-image">
+                                <!--Date-->
+                                <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">Ⅴ</span> </div>
+                                <!--Image-->
+                                <figure> <img alt="" src="../static/audio_book_files/elice_friend.png"> </figure>
+                              </div>
+                              <div class="item-box-blog-body">
+                                <!--Heading-->
+                                <div class="item-box-blog-heading">
+                                  <h5><strong>Advice from a Caterpillar</strong></h5>
+                                </div>
+                                <!--Data-->
+                                <div class="item-box-blog-data" style="padding: px 15px;">
+                                  
+                                </div>
+                                <!--Text-->
+                                <div class="item-box-blog-text">
+                                  <p>The Caterpillar and Alice looked at each other for some time in silence.</p>
+                                </div>
+                                <div class="mt">
+                                        <audio controls>
+                                            <source src="../static/audio_book_files/chapter5.mp3" type="audio/mp3">
+                                        </audio>
+                                </div>
+                                
+                                <!--Read More Button-->
+                              </div>
+                            </div>
+                          </div>
+                          <!-- 한 요소 끝 -->
+                          <!-- 1번 책 요소 -->
+                          <div class="col-md-4" >
+                            <div class="item-box-blog">
+                              <div class="item-box-blog-image">
+                                <!--Date-->
+                                <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">Ⅵ</span> </div>
+                                <!--Image-->
+                                <figure> <img alt="" src="../static/audio_book_files/elice_friend.png"> </figure>
+                              </div>
+                              <div class="item-box-blog-body">
+                                <!--Heading-->
+                                <div class="item-box-blog-heading">
+                                  <h5><strong>Pig and Pepper</strong></h5>
+                                </div>
+                                <!--Data-->
+                                <div class="item-box-blog-data" style="padding: px 15px;">
+                                  
+                                </div>
+                                <!--Text-->
+                                <div class="item-box-blog-text">
+                                  <p>For a minute or two she stood looking at the house, and wondering what to do
+                                    next, when suddenly a footman in livery came running out of the wood</p>
+                                </div>
+                                <div class="mt">
+                                        <audio controls>
+                                            <source src="../static/audio_book_files/chapter6.mp3" type="audio/mp3">
+                                        </audio>
+                                </div>
+                                
+                                <!--Read More Button-->
+                              </div>
+                            </div>
+                          </div>
+                          <!-- 한 요소 끝 -->
+                        </div>
+                        <!--.row-->
+                      </div>
+                      <!--.item-->
+                      <div class="carousel-item ">
+                        <div class="row">
+                          <!-- 1번 책 요소 -->
+                          <div class="col-md-4" >
+                            <div class="item-box-blog">
+                              <div class="item-box-blog-image">
+                                <!--Date-->
+                                <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">Ⅶ</span> </div>
+                                <!--Image-->
+                                <figure> <img alt="" src="../static/audio_book_files/elice_friend.png"> </figure>
+                              </div>
+                              <div class="item-box-blog-body">
+                                <!--Heading-->
+                                <div class="item-box-blog-heading">
+                                  <h5><strong>A Mad Tea-Party</strong></h5>
+                                </div>
+                                <!--Data-->
+                                <div class="item-box-blog-data" style="padding: px 15px;">
+                                  
+                                </div>
+                                <!--Text-->
+                                <div class="item-box-blog-text">
+                                  <p>There was a table set out under a tree in front of the house, and the March
+                                    Hare and the Hatter were having tea at it.</p>
+                                </div>
+                                <div class="mt">
+                                        <audio controls>
+                                            <source src="../static/audio_book_files/chapter7.mp3" type="audio/mp3">
+                                        </audio>
+                                </div>
+                                
+                                <!--Read More Button-->
+                              </div>
+                            </div>
+                          </div>
+                          <!-- 한 요소 끝 -->
+                          <!-- 1번 책 요소 -->
+                          <div class="col-md-4" >
+                            <div class="item-box-blog">
+                              <div class="item-box-blog-image">
+                                <!--Date-->
+                                <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">Ⅷ</span> </div>
+                                <!--Image-->
+                                <figure> <img alt="" src="../static/audio_book_files/elice_friend.png"> </figure>
+                              </div>
+                              <div class="item-box-blog-body">
+                                <!--Heading-->
+                                <div class="item-box-blog-heading">
+                                  <h5><strong>The Queen’s Croquet-Ground</strong></h5>
+                                </div>
+                                <!--Data-->
+                                <div class="item-box-blog-data" style="padding: px 15px;">
+                                  
+                                </div>
+                                <!--Text-->
+                                <div class="item-box-blog-text">
+                                  <p>A large rose-tree stood near the entrance of the garden.</p>
+                                </div>
+                                <div class="mt">
+                                        <audio controls>
+                                            <source src="../static/audio_book_files/chapter8.mp3" type="audio/mp3">
+                                        </audio>
+                                </div>
+                                
+                                <!--Read More Button-->
+                              </div>
+                            </div>
+                          </div>
+                          <!-- 한 요소 끝 -->
+                          <!-- 1번 책 요소 -->
+                          <div class="col-md-4" >
+                            <div class="item-box-blog">
+                              <div class="item-box-blog-image">
+                                <!--Date-->
+                                <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">Ⅸ</span> </div>
+                                <!--Image-->
+                                <figure> <img alt="" src="../static/audio_book_files/elice_friend.png"> </figure>
+                              </div>
+                              <div class="item-box-blog-body">
+                                <!--Heading-->
+                                <div class="item-box-blog-heading">
+                                  <h5><strong>The Mock Turtle’s Story</strong></h5>
+                                </div>
+                                <!--Data-->
+                                <div class="item-box-blog-data" style="padding: px 15px;">
+                                  
+                                </div>
+                                <!--Text-->
+                                <div class="item-box-blog-text">
+                                  <p>‘You can’t think how glad I am to see you again, you dear old thing!’ said the
+                                    Duchess.</p>
+                                </div>
+                                <div class="mt">
+                                        <audio controls>
+                                            <source src="../static/audio_book_files/chapter9.mp3" type="audio/mp3">
+                                        </audio>
+                                </div>
+                                
+                                <!--Read More Button-->
+                              </div>
+                            </div>
+                          </div>
+                          <!-- 한 요소 끝 -->
+                        </div>
+                        <!--.row-->
+                      </div>
+                      
+                    </div>
+                    <!--.carousel-inner-->
+                  </div>
+                  <!--.Carousel-->
+                </div>
+              </div>
+            </div>
+          </div>
+       
+    </div>
+</body>
+{% endblock %}

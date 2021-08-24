@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>여름 책 추천</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='elice_favicon.ico') }}">
+        <style>
+            .question:hover {
+                cursor: url(./static/blood_link.cur), auto;
+            }
+            a {
+                cursor: url(./static/blood_link.cur), auto;
+            }
+
+            /* 엘리스 배움체 적용 */
+            @font-face {
+                font-family: "elice_baeum_regular";
+                src: url("../static/elice_fonts/EliceDigitalBaeum_Regular.ttf");
+            }
+
+            body {
+                background-color: black;
+                cursor: url(./static/blood_normal.cur) 2 2, pointer;
+                font-family: "elice_baeum_regular";
+            }
+            
+            #elice_with_knife {
+                margin-bottom: 3px;
+            }
+
+            audio { 
+                display:none;
+            }
+
+            h1 { animation-duration: 10s; animation-name: horrorText; animation-iteration-count: infinite;} 
+                @keyframes horrorText {
+                100% { color: #ff0000; }
+            }
+            h2, h4, p{
+                color: azure;
+            }
+            .answer {
+            display: none;
+            padding-bottom: 30px;
+            }
+            #faq-title {
+                font-size: 25px;
+            }
+
+            .question {
+                font-size: 19px;
+                padding: 30px 0;
+                cursor: pointer;
+                border: none;
+                outline: none;
+                background: none;
+                width: 100%;
+                text-align: center;
+            }
+
+            [id$="-toggle"] {
+                margin-right: 15px;
+            }
+            .loading span {
+                font-family: "elice_baeum_regular";
+                display: inline-block;
+                margin: 0 -.05em;
+                animation: loading .7s infinite;
+                }
+                .loading span:nth-child(2) {
+                animation-delay: .1s;
+                }
+                .loading span:nth-child(3) {
+                animation-delay: .2s;
+                }
+                .loading span:nth-child(4) {
+                animation-delay: .3s;
+                }
+                .loading span:nth-child(5) {
+                animation-delay: .4s;
+                }
+                .loading span:nth-child(6) {
+                animation-delay: .5s;
+                }
+                @keyframes loading {
+                0%, 100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(15px);
+                }
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div style="text-align: center;">
+            <h1> ~여름 납량 특집~<br> -내가 아직도 엘리스로 보이니?- </h1>
+            <img id="elice_with_knife" src='../static/horror_elice.jpg' alt="토끼가 칼을 들고있어여 ㄷㄷ">
+            
+            <div class="faq-content">
+                <button class="question" id="que-1" style="color: #e0e0e0;"><span id="que-1-toggle"></span><span>
+                <div class="loading" style="color: #e0e0e0;">
+                    <span>첫</span>
+                    <span>번</span>
+                    <span>째</span>
+                    <span>추</span>
+                    <span>천</span>
+                    <span>작</span>
+                </div>
+                </span></button>
+                <div class="answer" id="ans-1">
+                    <div>
+                        <h2>공찔이지만! 한번 도전해 보고 싶어!</h2>
+                        <img src='../static/horror_books_files/foe.jpg' alt="포 단편선" width="235" height="400">
+                        <p>
+                            어긋나고 음습한 세계관, 이야기마다 서린 독특한 광기, 어두운 상상력으로 이성과 감성의 틈을 날카롭게 파고든 에드거 앨런 포의 대표 단편들
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-content">
+                <button class="question" id="que-2" style="color: #e0e0e0;"><span id="que-2-toggle"></span><span>
+                    <div class="loading" style="color: #e0e0e0;">
+                        <span>두</span>
+                        <span>번</span>
+                        <span>째</span>
+                        <span>추</span>
+                        <span>천</span>
+                        <span>작</span>
+                    </div>
+                </span></button>
+                <div class="answer" id="ans-2">
+                    <div>
+                        <h2>형이 여기서 왜 나와...? <br> 인간의 욕망과 이기심 그 자체가 공포</h2>
+                        <img src='../static/horror_books_files/no_one.jpg' alt="게 아무도 없냐" width="235" height="400">
+                        <p>
+                            섬에 모인 열 사람이 차례로 죽어간다. 인디언 섬에는 이들 열 명 외엔 아무도 없다. 섬에 갇힌 사람이 모두 살해되었으니 범인은 도대체 누구일까?
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-content">
+                <button class="question" id="que-3" style="color: #e0e0e0;"><span id="que-3-toggle"></span><span>
+                    <div class="loading" style="color: #e0e0e0;">
+                        <span>마</span>
+                        <span>지</span>
+                        <span>막</span>
+                        <span>추</span>
+                        <span>천</span>
+                        <span>작</span>
+                    </div>
+                </span></button>
+                <div class="answer" id="ans-3">
+                    <div>
+                        <h2>공포 소설의 끝판왕. 내용이 너무 잔인해 국내에서 19세 미만 구독금지 판정을 받은 충격적인 작품!</h2>
+                        <h4>※이 소설에는 살인과 신체훼손 묘사가 매우 적나라하게 표현되기 때문에 심신미약 상태에서 읽지 않는 걸 추천합니다...※</h4>
+                        <img src='../static/horror_books_files/salyuk.jpg' alt="와 이거 레알 심신미약은 못봄" width="235" height="400">
+                        <p>
+                            출간 20여 년이 지난 지금도 최고의 반전 공포소설로 손꼽히는 걸작
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- 브금 (착신아리) -->
+        <audio autoplay loop controls>
+            <source src="../static/horror_books_files/horror_bgm.mp3" type="audio/mp3">
+        </audio>
+        <script>
+            const items = document.querySelectorAll('.question');
+    
+            function openCloseAnswer() {
+            const answerId = this.id.replace('que', 'ans');
+    
+            if(document.getElementById(answerId).style.display === 'block') {
+                document.getElementById(answerId).style.display = 'none';
+                document.getElementById(this.id + '-toggle').textContent = '';
+            } else {
+                document.getElementById(answerId).style.display = 'block';
+                document.getElementById(this.id + '-toggle').textContent = '';
+                }
+            }
+    
+            items.forEach(item => item.addEventListener('click', openCloseAnswer));
+        </script>
+    </body>
+</html>

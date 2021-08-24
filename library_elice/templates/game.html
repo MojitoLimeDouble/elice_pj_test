@@ -1,0 +1,17 @@
+{% extends 'base.html' %} <!-- base.html 불러오기 -->
+{% block title %}
+    책만 읽으면 바보가 됩니다
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <h2>책 많이 읽느라 고생한 당신! 여기서 놀아라!</h2>
+    <h4>추억의 슈파-마리오!</h4>
+    <link rel="stylesheet" href="static/library.css">
+    <iframe src="https://jcw87.github.io/c2-smb1/" width="100%" height="600" data-ruffle-polyfilled=""></iframe>
+    <p>
+        조작키 
+    </p>
+    <p>점프: 스페이스 바<br> 달리기 및 불 쏘기: 쉬프트<br> 일시정지: 엔터</p>
+</body>
+{% endblock %}

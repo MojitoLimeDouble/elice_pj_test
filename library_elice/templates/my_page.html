@@ -1,0 +1,32 @@
+{% extends 'base.html' %} <!-- base.html 불러오기 -->
+{% block title %}
+    내정보
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="static/library.css">
+<body class="text-center">
+    <div class="col-4">
+        <h2>엘리스 도서관</h2>
+        <p>대여하기</p>
+        대출한 책들
+        <div class="row">
+            {% for borrowed_book in borrowed_books %}
+            {% include 'includes/borrowed_books_modals.html' %}
+                <div class="col-md-6">
+                    <div style="margin-bottom: 5px" class="card text-center bg-dark text-light">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ borrowed_book.book_name }}</h5>
+                            <button type="button" class="btn btn-outline-danger" style="margin-bottom: 5px"
+                                    data-toggle="modal" data-target="#Modal-ReturnConfirm-{{ borrowed_book.id }}">
+                                <p class="card-text">도서 반납하기</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+{% endblock %}

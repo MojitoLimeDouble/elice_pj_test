@@ -1,0 +1,28 @@
+<!-- 도서 반납 확인 -->
+<div class="modal fade" id="Modal-ReturnConfirm-{{ borrowed_book.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-light">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLabel">{{ borrowed_book.book_name }}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- POST를 이용해서 반납 연동하기 -->
+          <form method="POST">
+            {{ return_book_form.hidden_tag() }}
+
+            <h4 class="text-center">
+                정말 {{ borrowed_book.book_name }}을(를) 반납하시겠습니까?
+            </h4>
+            <input id="returning_book" name="returning_book" type="hidden" value="{{borrowed_book.book_name}}">
+            {{ return_book_form.submit(class="btn btn-outline-success btn-block") }}
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+        </div>
+      </div>
+    </div>
+</div>

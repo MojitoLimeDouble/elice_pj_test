@@ -1,0 +1,41 @@
+{% extends 'base.html' %} <!-- base.html 불러오기 -->
+{% block title %}
+    매너 채팅 부탁
+{% endblock %}
+
+
+{% block content %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<link rel="stylesheet" href="../static/test.css">
+<link rel="stylesheet" href="../static/library.css">
+	{% for user in users %}
+	<body class="text-center">
+		<iframe src="http://play4you.icu/e/d5bb9196d3" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+			var socket = io.connect('http://127.0.0.1:5000');
+			socket.on('connect', function() {
+				socket.send('welcome!');
+			});
+		
+			socket.on('message', function(msg) {
+				$("#messages").append('{{user.username}}: '+msg+'<br>');
+				console.log('Received message');
+			});
+		
+			$('#sendbutton').on('click', function() {
+				socket.send($('#myMessage').val());
+				$('#myMessage').val('');
+			});
+		});
+		</script>
+		<ul id="messages"></ul>
+		<br>
+		<input type="text" id="myMessage">
+		<button id="sendbutton">전송</button>
+	</body>
+	{% endfor %}
+{% endblock %}

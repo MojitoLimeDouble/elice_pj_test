@@ -1,0 +1,35 @@
+{% extends 'base.html' %} <!-- base.html 불러오기 -->
+{% block title %}
+    나가는 문은 없습니다.
+{% endblock %}
+
+<!-- 엘리스 본진 소개글: 나가는 문은 없음 ㅇㅇ -->
+{% block content %}
+<style>
+    audio { 
+        display:none;
+    }
+</style>
+<div id="hamjung">
+    <link rel="stylesheet" href="static/library.css">
+    <body class="text-center">
+        <br>
+        <h1>엘리스 본진</h1>
+        <br>
+        <div id="center_fixed">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12846.83114671266!2d127.3986991!3d36.3920674!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa0eb0d0f8b6ab2a8!2zS0FJU1TrrLjsp4DsuqDtjbzsiqQ!5e0!3m2!1sko!2skr!4v1629106461163!5m2!1sko!2skr" width="500" height="460" style="border:2;" allowfullscreen="" loading="lazy"></iframe> &nbsp;&nbsp;
+            <img class="mb-4" src="../static/trap_baby.jpg" width="500" height="420" alt="trap">
+        </div>
+        <br>
+        <br>
+        <img class="mb-4" src="../static/trap_station.gif" height="230" alt="trap_gif">
+    
+        <!-- 함정 노래 자동재생 -->
+        <br>
+        <audio autoplay loop controls>
+            <source src="../static/hamjung_sound.mp3" type="audio/mp3">
+        </audio>
+        <br>
+    </body>
+</div>
+{% endblock %}

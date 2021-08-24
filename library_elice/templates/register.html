@@ -1,0 +1,47 @@
+{% extends 'base.html' %} <!-- base.html 불러오기 -->
+{% block title %}
+    회원가입
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <link rel="stylesheet" href="static/library.css">
+    <div class="container">
+        <form method="POST" class="form-register" style="color: white;">
+            <!-- CSRF 방지를 위한 코드 -->
+            {{ form.hidden_tag() }}
+            <h1 class="h3 mb-3 font-weight-normal text-dark">
+                <br>
+                환영합니다! 회원가입을 위해 다음을 작성 해주세요.
+            </h1>
+            <br>
+            {{ form.email_address.label() }}
+            {{ form.email_address(class="form-control", placeholder="이메일") }}
+
+            {{ form.username.label() }}
+            {{ form.username(class="form-control", placeholder="이름") }}
+
+            {{ form.password1.label() }}
+            {{ form.password1(class="form-control", placeholder="비밀번호") }}
+
+            {{ form.password2.label() }}
+            {{ form.password2(class="form-control", placeholder="비밀번호 확인") }}
+            
+            <br>
+
+            <div>
+                <h6 class="text-dark">이미 우리의 동료입니까?</h6>
+                <img class="mb-4" src="../static/onepiece.png" height="150" alt="register_img"><br>
+                
+            </div>
+            <div>
+                <a class="btn btn-sm btn-secondary" style="background-color:rgb(82, 79, 161);" href="{{ url_for('login_page') }}">로그인</a>
+                <br>
+                <br>
+            </div>
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
+        </form>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,103 @@
+<!-- 모든 페이지의 기초! -->
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- 파비콘  -->
+      <link rel="shortcut icon" href="{{ url_for('static', filename='elice_favicon.ico') }}">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- 부트스트랩 css -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+      <title>
+          {% block title %} <!-- 각 페이지의 타이틀을 불러옴 -->
+
+          {% endblock %}
+      </title>
+   </head>
+   <body>
+      <!-- 네비게이션 바 만들기, 고정하려면 top-fixed말고 sticky-top 써야함 안그러면 경고창 안보임 ㅡㅡ -->
+      <nav class="navbar sticky-top navbar-expand-md navbar-dark" style="background-color: rgb(82, 79, 161);">
+        <!-- 엘리스 로고 따오기 -->
+        <a class="navbar-brand" href="{{ url_for('home_page') }}"><img src="data:image/png;base64,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" alt="elice" width="80" height="25" class="d-inline-block align-text-top"/>
+                Elice Library</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('home_page') }}">홈 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('book_list_page') }}">책 목록</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('game_page') }}">휴게실</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('audio_book_page') }}">오디오북</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('chat_page') }}">채팅방</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('recommend_page') }}">추천 도서</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('faq_page') }}">FAQ</a>
+                    </li>
+                </ul>
+                <!-- 만약 로그인이 되었다면 이런 화면을 출력~ -->
+                {% if current_user.is_authenticated %}
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('my_page') }}">내정보</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('logout_page') }}">로그아웃</a>
+                        </li>
+                    </ul>
+                {% else %}
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('login_page') }}">로그인</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('register_page') }}">회원가입</a>
+                        </li>
+                    </ul>
+                {% endif %}
+            </div>
+        </nav>
+            <!-- 오류 출력 -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            <button type="button" class="m1-2 mb-1 close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            {% block content %}
+
+            {% endblock %}
+
+    <!-- 제이쿼리 1빠따, js 2빠따, 부트스트랩 3빠따 -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+</body>
+<style>
+    body {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0)
+    }
+</style>
+</html>

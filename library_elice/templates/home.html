@@ -1,0 +1,160 @@
+{% extends 'base.html' %} <!-- base.html 불러오기 -->
+{% block title %}
+    엘리스 도서관에 오신 걸 환영합니다.
+{% endblock %}
+
+
+{% block content %}
+    <head>
+        <meta charset="utf-8"/>
+        <title>Untitled Document</title>
+        <Script Language="Javascript">
+        
+        let timer = 0;
+
+        //마우스가 움직일때마다 타이버를 초기화
+        function doMove(){
+            timer=0;
+        } 
+        //1초마다 이함수를 호출하여 타이머를 증가
+        function checkmove(){ 
+            timer++;
+            //초단위로 값을 셋팅하고 timer가 해당 값이 될 경우 함수호출
+            //함수를 호출하고 타이머 초기화
+            if(timer==50000){
+                funcSetScript();
+                timer = 0;
+            }
+        }
+        //와우 함수
+        function funcSetScript(){
+            // 원래의 계획
+            // document.body.innerHTML = "<img src='../static/wow.gif', width=1000>";
+            var wow = document.getElementById('wow');
+            wow.setAttribute("src", "../static/wow.gif")
+            var wow1 = document.getElementById('wow1');
+            wow1.setAttribute("src", "../static/wow.gif")
+            var wow2 = document.getElementById('wow2');
+            wow2.setAttribute("src", "../static/wow.gif")
+            var wow3 = document.getElementById('wow3');
+            wow3.setAttribute("src", "../static/wow.gif")
+        }
+        </Script>
+        <style>
+            /* 리셋 CSS */
+            * {margin:0;padding:0;box-sizing:border-box;}
+            ul, li {list-style:none;}
+            
+            /* 슬라이드 Style */
+            .slidebox {max-width:248px; max-height: 248px; margin:0 auto;}
+            .slidebox .slidelist {white-space:nowrap;font-size:0;overflow:hidden;}
+            .slidebox .slidelist .slideitem {position:relative;display:inline-block;vertical-align:middle;width:100%;transition:all 1s;}
+            .slidebox .slidelist .slideitem > a {display:block;width:auto;position:relative;}
+            .slidebox .slidelist .slideitem > a img {max-width:100%;}
+            .slidebox .slidelist .slideitem > a label.prev {left:20px;background:#333 url('./img/left-arrow.png') center center / 50% no-repeat;}
+            .slidebox .slidelist .slideitem > a label.next {right:20px;background:#333 url('./img/right-arrow.png') center center / 50% no-repeat;}
+            
+            
+            [name="slide"] {display:none;}
+            #slide01:checked ~ .slidelist .slideitem {transform:translateX(0);animation:slide01 15s infinite;}
+            #slide02:checked ~ .slidelist .slideitem {transform:translateX(-100%);animation:slide02 15s infinite;}
+            #slide03:checked ~ .slidelist .slideitem {transform:translateX(-200%);animation:slide03 15s infinite;}
+            
+            
+            @keyframes slide01 {
+                0% {left:0%;}
+                33% {left:0%;}
+                34% {left:-100%}
+                66% {left:-100%;}
+                67% {left:-200%;}
+                99% {left:-200%;}
+                100% {left:0%;}
+            }
+            
+            @keyframes slide02 {
+                0% {left:0%;}
+                33% {left:0%;}
+                34% {left:-100%;}
+                66% {left:-100%;}
+                67% {left:100%;}
+                99% {left:100%;}
+                100% {left:0%;}
+            }
+            
+            @keyframes slide03 {
+                0% {left:0%;}
+                33% {left:0%;}
+                34% {left:200%;}
+                66% {left:200%;}
+                67% {left:100%;}
+                99% {left:100%;}
+                100% {left:0%;}
+            }
+        </style>
+            
+    </head>
+    <body onload="setInterval(checkmove,1000);" onmousemove="doMove();">
+        <div>
+            <link rel="stylesheet" href="static/library.css">
+            <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-white" style="color:black" >
+                <!-- 오디오 북 컨텐츠 -->
+                <a href="{{ url_for('audio_book_page')}}">
+                    <img id="wow" src="{{ url_for('static', filename='0310_audiobook.jpg') }}">
+                </a>
+                
+                <!-- 오시는 길 -->
+                <a href="{{ url_for('comeon_page')}}">
+                    <img id="wow2" src="{{ url_for('static', filename='comeon.gif') }}">
+                </a>
+                <!-- 많이 하는 질문 -->
+                <a href="{{ url_for('faq_page')}}">
+                    <img id="wow3" src="{{ url_for('static', filename='question.gif') }}">
+                </a>
+                <br>
+                <br>
+                <h1>여름 납량특집기념 엘리스 추천 도서</h1>
+                <!-- 추천 책 -->
+                <div class="slidebox">
+                    <input type="radio" name="slide" id="slide01" checked>
+                    <input type="radio" name="slide" id="slide02">
+                    <input type="radio" name="slide" id="slide03">
+                    <ul class="slidelist">
+                        <li class="slideitem">
+                            <a href="{{ url_for('recommend_page')}}">
+                                <label for="slide03" class="prev"></label>
+                                <img src="../static/horror_books_files/foe_recommend.jpg">
+                                <label for="slide02" class="next"></label>
+                            </a>
+                        </li>
+                        <li class="slideitem">
+                            <a href="{{ url_for('recommend_page')}}">
+                                <label for="slide01" class="prev"></label>
+                                <img src="../static/horror_books_files/no_one_recommend.jpg">
+                                <label for="slide03" class="next"></label>
+                            </a>
+                        </li>
+                        <li class="slideitem">
+                            <a href="{{ url_for('recommend_page')}}">
+                                <label for="slide02" class="prev"></label>
+                                <img src="../static/horror_books_files/salyuk_recommend.jpg">
+                                <label for="slide01" class="next"></label>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <br>
+                <h3 class="display-4 font-weight-normal">홈페이지를 처음 방문한 분들을 위한 안내 동영상</h3>
+                <br>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/rH-iTWfGXAI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            <br>
+                <br>
+                <h3>엘리스 도서관의 협약 기관</h3>
+                <br>
+                <a href="{{ url_for('credit_page') }}">
+                    <img class="mb-4" src="../static/companies.jfif" height="350" width="900" alt="companies_img"><br>
+                </a>
+            </div>
+            <div class="product-device box-shadow d-none d-md-block"></div>
+            <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+        </div>
+    </body>
+{% endblock %}

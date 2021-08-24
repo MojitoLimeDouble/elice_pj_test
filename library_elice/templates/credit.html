@@ -1,0 +1,360 @@
+<!-- 엔딩크레딧 페이지 반복문으로 자동 스크롤 -->
+<style>
+@import url("https://use.typekit.net/dlv3ztc.css");
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+        font-family: "elice_baeum_regular";
+}
+
+@font-face {
+    font-family: "elice_baeum_regular";
+    src: url("../static/elice_fonts/EliceDigitalBaeum_Regular.ttf");
+}
+
+
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    background-color: #060606;
+    color: #c7c6ac;
+    font-family: adelle;
+    font-variant-ligatures: common-ligatures;
+    display: flex;
+    justify-content: center;
+    font-synthesis: none;
+
+}
+h1 {
+    font-family: adelle-condensed;
+    text-align: center;
+    font-weight: 400;
+    font-variant-caps: all-small-caps;
+    font-size: 6rem;
+
+}
+em {
+        font-variant-caps: normal;
+        font-size: 0.8em;
+}
+
+h2 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 2.5rem;
+    margin-top: 5rem;
+    margin-bottom: 0.5rem;
+    font-variant-caps: all-small-caps;
+}
+
+h3 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+h4 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.8rem;
+}
+
+p {
+    margin-top: 4rem;
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 8rem;
+}
+
+.smcaps {
+    font-variant-caps: all-small-caps;
+}
+
+.credits {
+    flex-basis: 100rem;
+    margin: 2rem 0;
+    font-size: 1.85rem;
+    line-height: 1.2;
+    padding: 1rem;
+}
+.credits_single {
+    display: grid;
+    grid-template-columns: 1;
+    gap: 0 2rem;
+    text-align: center;
+}
+
+.credits_double {
+    display: grid;
+    grid-template-columns: 1;
+    gap: 0 2rem;
+    text-align: center;
+}
+
+dt {
+    text-align: center;
+
+    font-variant-caps: all-small-caps;
+    margin-top: 1.7rem;
+}
+dd {
+    text-align: center;
+
+    margin-top: 4rem;
+}
+
+
+footer {
+    margin: 3rem;
+}
+
+.ending {
+    margin-top: 5000px;
+}
+
+
+</style>
+
+<script>
+    let position = 0;
+    function scroller(){
+        if (position != 10000){
+            position++;
+            scroll(0, position)
+            clearTimeout(timer)
+            var timer =setTimeout("scroller()", 25);
+            timer;
+        }
+    }
+</script>
+
+<link rel="shortcut icon" href="{{ url_for('static', filename='clap.ico') }}">
+
+
+<title>
+    모두 개인 프로젝트 고생했어요
+</title>
+
+<body onload="scroller()">
+    <section class="credits">
+        <br>
+        <br>
+        <br>
+        <br>
+        <header>
+            <h1>Credits<em>
+                    to
+                </em>you</h1>
+        </header>
+        <dl class="credits__single">
+            <dt>만든이</dt>
+            <dd>김효곤</dd>
+            <br>
+            <br>
+            <dt><h3>Special Thanks To CS50 Study Club</h3></dt>
+            <dd>이재찬</dd>
+            <dd>김민지</dd>
+            <dd>남은열</dd>
+            <dd>이준호</dd>
+            <dd>국진호</dd>
+        </dl>
+        <br>
+        <br>
+        <br>
+
+        <h2>엘리스 2기</h2>
+        <br>
+    
+        <dl class="credits__double">
+            <dd>강경모</dd>
+            <dd>고예림</dd>
+            <dd>강석영</dd>
+            <dd>고정현</dd>
+            <dd>권순빈</dd>
+            <dd>김가연</dd>
+            <dd>김가원</dd>
+            <dd>김기원</dd>
+            <dd>김나현</dd>
+            <dd>김다솔</dd>
+            <dd>김미희</dd>
+            <dd>김민성</dd>
+            <dd>김민지(1반)</dd>
+            <dd>김민지(2반)</dd>
+            <dd>김보연</dd>
+            <dd>김서정</dd>
+            <dd>김수연</dd>
+            <dd>김재현</dd>
+            <dd>김정현</dd>
+            <dd>김준석</dd>
+            <dd>김지훈</dd>
+            <dd>김진경</dd>
+            <dd>김태호</dd>
+            <dd>김토끼</dd>
+            <dd>김한별</dd>
+            <dd>김한빈</dd>
+            <dd>김현준</dd>
+            <dd>김희재</dd>
+            <dd>나석균</dd>
+            <dd>나영민</dd>
+            <dd>남경민</dd>
+            <dd>남궁은선</dd>
+            <dd>남은열</dd>
+            <dd>남정윤</dd>
+            <dd>문성권</dd>
+            <dd>문지윤</dd>
+            <dd>민경준</dd>
+            <dd>민수현</dd>
+            <dd>민지원</dd>
+            <dd>박강혜</dd>
+            <dd>박소현</dd>
+            <dd>박우람</dd>
+            <dd>박정윤</dd>
+            <dd>박지윤</dd>
+            <dd>박지호</dd>
+            <dd>백승욱</dd>
+            <dd>백종성</dd>
+            <dd>변지영</dd>
+            <dd>사은수</dd>
+            <dd>서명현</dd>
+            <dd>서채연</dd>
+            <dd>송성곤</dd>
+            <dd>신호연</dd>
+            <dd>안리아</dd>
+            <dd>엄시온</dd>
+            <dd>오수연</dd>
+            <dd>윤석준</dd>
+            <dd>이금홍</dd>
+            <dd>이무용</dd>
+            <dd>이민영</dd>
+            <dd>이선예</dd>
+            <dd>이성효</dd>
+            <dd>이승환</dd>
+            <dd>이재찬</dd>
+            <dd>이정규</dd>
+            <dd>이준호(1반)</dd>
+            <dd>이준호(2반)</dd>
+            <dd>임희지</dd>
+            <dd>전진성</dd>
+            <dd>정병우</dd>
+            <dd>정율리</dd>
+            <dd>정태윤</dd>
+            <dd>정희재</dd>
+            <dd>조승희</dd>
+            <dd>조호정</dd>
+            <dd>최연주</dd>
+            <dd>최유림</dd>
+            <dd>최윤성</dd>
+            <dd>최재원</dd>
+            <dd>한동희</dd>
+            <dd>함시연</dd>
+            <dd>홍민지</dd>
+            <dd>황상섭</dd>
+            <dd>김태현</dd>
+            <dd>이정윤</dd>
+            <dd>추민우</dd>
+            <dd>강윤수</dd>
+            <dd>장석준</dd>
+            <dd>공용현</dd>
+            <dd>이아영</dd>
+            <dd>이정우</dd>
+            <dd>이호정</dd>
+            <dd>전모건</dd>
+            <dd>이고잉</dd>
+            <dd>강선규</dd>
+            <dd>권성현</dd>
+            <dd>김병철</dd>
+            <dd>김성일</dd>
+            <dd>김일식</dd>
+            <dd>김현종</dd>
+            <dd>김형준</dd>
+            <dd>부현식</dd>
+            <dd>유원영</dd>
+            <dd>이형남</dd>
+            <dd>인상민</dd>
+            <dd>정승환</dd>
+            <dd>케이든</dd>
+            <dd>김기태</dd>
+            <dd>홍성보</dd>
+            <dd>박수광</dd>
+            
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p>
+                Persistence. Nothing in the world can take the place of persistence. Talent won't. Nothing is more common than unsuccessful men with talent. Genius won't. Unrewarded genius is practically a cliche. Persistence and determination alone are all powerful.
+            </p>
+            <p> 
+                -Calvin Coolidge
+            </p>
+            <p>
+                끈기. 세상 어떠한 것도 끈기를 당해낼 수 없다. 재능? 아니다. 재능을 가진 사람이 성공 못하는 경우도 수두룩하다. 천재성? 아니다. 성공하지 못한 천재들 또한 널렸다.
+                오직 끈기와 결단력, 이 두 가지가 성공에 있어 가장 강력한 무기다.
+            </p>
+            <div class="ending">
+                <br>
+            </div>
+            <audio autoplay controls>
+                <source src="../static/credit.mp3" type="audio/mp3">
+            </audio>
+        </dl>
+</body>
+</section>

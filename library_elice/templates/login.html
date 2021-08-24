@@ -1,0 +1,38 @@
+{% extends 'base.html' %} <!-- base.html 불러오기 -->
+{% block title %}
+    로그인
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="static/library.css">
+<body class="text-center">
+    <div class="container">
+        <form method="POST" class="form-signin" style="color: white;">
+            {{ form.hidden_tag() }}
+            <h1 class="h3 mb-3 font-weight-normal text-dark">
+                <br>
+                로그인
+            </h1>
+            <br>
+            {{ form.email_address.label() }}
+            {{ form.email_address(class="form-control", placeholder="이메일") }}
+
+            {{ form.password.label() }}
+            {{ form.password(class="form-control", placeholder="비밀번호") }}
+
+            <br>
+
+            <div>
+                <h6 class="text-dark">어서와 엘리스 도서관은 처음이지?</h6>
+                <!-- 엘리스 토깽이 사진 추가하기 -->
+                <img class="mb-4" src="../static/login_library.png" height="230" alt="login_img"><br>
+                <a class="btn btn-sm btn-secondary" style="background-color:rgb(82, 79, 161);" href="{{ url_for('register_page') }}">회원가입</a>
+            </div>
+            <br>
+            
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
+        </form>
+    </div>
+</body>
+{% endblock %}
